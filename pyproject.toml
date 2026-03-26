@@ -10,7 +10,14 @@ dependencies = [
     "httpx>=0.27.0",
     "pydantic>=2.0.0",
     "pydantic-settings>=2.0.0",
-    "fastmcp>=2.0.0",
+    "fastmcp>=2.14.2,<3.0.0",
+    # Pinned minimums to resolve Dependabot security alerts on transitive deps
+    "authlib>=1.6.9",
+    "PyJWT>=2.12.0",
+    "cryptography>=46.0.5",
+    "python-multipart>=0.0.22",
+    "urllib3>=2.6.3",
+    "requests>=2.33.0",
 ]
 
 [project.scripts]
