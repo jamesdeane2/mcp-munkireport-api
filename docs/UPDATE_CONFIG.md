@@ -21,7 +21,7 @@ nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
   "command": "uv",
   "args": [
     "--directory",
-    "/Users/admin/Documents/GitHub_James/mcp-munkireport-api",
+    "/path/to/mcp-munkireport-api",
     "run",
     "mcp-munkireport-api",
     "https://YOUR-DOMAIN-HERE.com",
@@ -36,7 +36,7 @@ nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
   "command": "uv",
   "args": [
     "--directory",
-    "/Users/admin/Documents/GitHub_James/mcp-munkireport-api",
+    "/path/to/mcp-munkireport-api",
     "run",
     "mcp-munkireport-api",
     "https://your-actual-domain.com",
@@ -57,7 +57,7 @@ Then it would look like:
   "command": "uv",
   "args": [
     "--directory",
-    "/Users/admin/Documents/GitHub_James/mcp-munkireport-api",
+    "/path/to/mcp-munkireport-api",
     "run",
     "mcp-munkireport-api",
     "https://munkireport-api.supportplan.com",
@@ -101,7 +101,7 @@ curl -H "X-API-Key: your-key" \
   https://your-domain.com/api/v1/tools/get_database_stats
 
 # Test the MCP client
-uv --directory /Users/admin/Documents/GitHub_James/mcp-munkireport-api \
+uv --directory /path/to/mcp-munkireport-api \
   run mcp-munkireport-api https://your-domain.com your-key
 ```
 

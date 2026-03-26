@@ -140,11 +140,11 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/admin/Documents/GitHub_James/mcp-munkireport-api",
+        "/path/to/mcp-munkireport-api",
         "run",
         "mcp-munkireport-api",
-        "http://10.254.6.14:5030",
-        "Support1"
+        "http://your-munkireport-host:5030",
+        "your-api-key"
       ]
     }
   }
@@ -154,7 +154,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 ## Installation
 
 ```bash
-cd /Users/admin/Documents/GitHub_James/mcp-munkireport-api
+cd /path/to/mcp-munkireport-api
 uv pip install -e .
 ```
 

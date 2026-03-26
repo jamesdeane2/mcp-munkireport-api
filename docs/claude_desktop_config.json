@@ -4,11 +4,11 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/admin/Documents/GitHub_James/mcp-munkireport-api",
+        "/path/to/mcp-munkireport-api",
         "run",
         "mcp-munkireport-api",
-        "http://10.254.6.14:5030",
-        "Support1"
+        "http://your-munkireport-host:5030",
+        "your-api-key"
       ]
     }
   }

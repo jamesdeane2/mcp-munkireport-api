@@ -21,7 +21,7 @@ MunkiReport Database
 ## Installation
 
 ```bash
-cd /Users/admin/Documents/GitHub_James/mcp-munkireport-api
+cd /path/to/mcp-munkireport-api
 uv pip install -e .
 ```
 
@@ -38,11 +38,11 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/admin/Documents/GitHub_James/mcp-munkireport-api",
+        "/path/to/mcp-munkireport-api",
         "run",
         "mcp-munkireport-api",
-        "http://10.254.6.14:5030",
-        "Support1"
+        "http://your-munkireport-host:5030",
+        "your-api-key"
       ]
     }
   }
@@ -62,7 +62,7 @@ Test the client without Claude:
 uv pip install -e .
 
 # Run test script
-python tests/test_client.py http://10.254.6.14:5030 Support1
+python tests/test_client.py http://your-munkireport-host:5030 your-api-key
 ```
 
 ## Available Tools
@@ -141,7 +141,7 @@ mcp-munkireport-api/
 uv pip install -e .
 
 # Test the client
-python tests/test_client.py http://10.254.6.14:5030 your-api-key
+python tests/test_client.py http://your-munkireport-host:5030 your-api-key
 
 # Check Claude Desktop logs if issues
 tail -f ~/Library/Logs/Claude/mcp*.log
@@ -156,7 +156,7 @@ tail -f ~/Library/Logs/Claude/mcp*.log
 - Check logs: `~/Library/Logs/Claude/`
 
 **Connection errors:**
-- Verify Flask API is accessible: `curl http://10.254.6.14:5030/api/v1/health`
+- Verify Flask API is accessible: `curl http://your-munkireport-host:5030/api/v1/health`
 - Check API key is correct
 - Ensure you're on VPN if required
 

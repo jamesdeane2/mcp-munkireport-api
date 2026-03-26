@@ -12,7 +12,7 @@ Claude Desktop → MCP Client → HTTP → Flask API → SQLite Database
 ## Installation (Already Done!)
 
 ```bash
-cd /Users/admin/Documents/GitHub_James/mcp-munkireport-api
+cd /path/to/mcp-munkireport-api
 uv pip install -e .
 ```
 
@@ -43,11 +43,11 @@ All 6 tests passed:
          "command": "uv",
          "args": [
            "--directory",
-           "/Users/admin/Documents/GitHub_James/mcp-munkireport-api",
+           "/path/to/mcp-munkireport-api",
            "run",
            "mcp-munkireport-api",
-           "http://10.254.6.14:5030",
-           "Support1"
+           "http://your-munkireport-host:5030",
+           "your-api-key"
          ]
        }
      }
@@ -119,18 +119,18 @@ mcp-munkireport-api/
 tail -f ~/Library/Logs/Claude/mcp*.log
 
 # Test manually
-uv --directory /Users/admin/Documents/GitHub_James/mcp-munkireport-api \
-  run mcp-munkireport-api http://10.254.6.14:5030 Support1
+uv --directory /path/to/mcp-munkireport-api \
+  run mcp-munkireport-api http://your-munkireport-host:5030 your-api-key
 ```
 
 **If connection fails:**
 ```bash
 # Verify Flask API is running
-curl http://10.254.6.14:5030/api/v1/health
+curl http://your-munkireport-host:5030/api/v1/health
 
 # Verify authentication
-curl -H "X-API-Key: Support1" \
-  http://10.254.6.14:5030/api/v1/tools/get_database_stats
+curl -H "X-API-Key: your-api-key" \
+  http://your-munkireport-host:5030/api/v1/tools/get_database_stats
 ```
 
 ## What's Next?
@@ -146,7 +146,7 @@ Just update your Claude Desktop config and restart.
 
 **Update the client:**
 ```bash
-cd /Users/admin/Documents/GitHub_James/mcp-munkireport-api
+cd /path/to/mcp-munkireport-api
 git pull
 uv pip install -e .
 # Restart Claude Desktop
@@ -158,7 +158,7 @@ Edit your Claude Desktop config and restart.
 ## Security Notes
 
 ⚠️ **API Key Visibility:**
-The API key "Support1" is passed as a command-line argument, which means it's visible in process lists. This is fine for internal VPN usage, but for production:
+The API key "your-api-key" is passed as a command-line argument, which means it's visible in process lists. This is fine for internal VPN usage, but for production:
 
 1. Use a strong API key
 2. Ensure Flask API is only accessible on VPN

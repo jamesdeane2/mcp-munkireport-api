@@ -12,7 +12,7 @@ class MunkiReportAPIClient:
         """Initialize API client.
 
         Args:
-            base_url: Base URL of the API (e.g., http://10.254.6.14:5030)
+            base_url: Base URL of the API (e.g., http://your-munkireport-host:5030)
             api_key: API key for authentication
             timeout: Request timeout in seconds
         """
