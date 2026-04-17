@@ -388,6 +388,27 @@ class MunkiReportAPIClient:
                 return []
             raise
 
+    async def get_ce_plus_compliance(
+        self,
+        manifest: str,
+        include_passing: bool = False,
+    ) -> dict[str, Any]:
+        """Get CE+ compliance report for machines matching a manifest.
+
+        Args:
+            manifest: Manifest name to scope the report (e.g. "Pablo")
+            include_passing: Whether to include passing machines in results
+
+        Returns:
+            Compliance report dictionary with summary and per-machine results
+        """
+        result = await self._make_request(
+            "POST",
+            "/api/v1/compliance/ce-plus",
+            json_data={"manifest": manifest, "include_passing": include_passing},
+        )
+        return result
+
     async def close(self):
         """Close the HTTP client."""
         if self._client is not None and not self._client.is_closed:

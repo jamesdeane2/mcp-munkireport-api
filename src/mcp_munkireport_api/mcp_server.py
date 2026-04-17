@@ -346,3 +346,32 @@ async def get_storage_report(serial_number: str) -> list[dict[str, Any]]:
     """
     client = get_client()
     return await client.get_storage_report(serial_number)
+
+
+@mcp.tool()
+async def get_ce_plus_compliance(
+    manifest: str,
+    include_passing: bool = False,
+) -> dict[str, Any]:
+    """Get Cyber Essentials Plus compliance report for a fleet scoped by manifest name.
+
+    Runs 8 compliance checks against all machines matching the manifest:
+    FileVault encryption, firewall, OS supported, OS patched, gatekeeper,
+    SIP, auto-update, and admin account hygiene (including stale detection).
+
+    Args:
+        manifest: MunkiReport manifest name to scope the report (e.g. "Pablo").
+                  Filters machines by manifest, not hostname prefix.
+        include_passing: If True, include machines that pass all checks.
+                        Defaults to False (only show failures).
+
+    Returns:
+        Dictionary with:
+        - success: bool
+        - manifest: manifest name used
+        - summary: {total_machines, compliant, non_compliant, compliance_rate,
+                    checks (per-check pass/fail counts), stale_machines}
+        - machines: list of per-machine results with check details
+    """
+    client = get_client()
+    return await client.get_ce_plus_compliance(manifest, include_passing)

@@ -6,16 +6,22 @@ from mcp_munkireport_api.client import MunkiReportAPIClient
 
 @pytest.fixture
 def api_url():
-    """Get API URL from environment or use default."""
+    """Get API URL from environment."""
     import os
-    return os.environ.get("MUNKIREPORT_API_URL", "http://your-munkireport-host:5030")
+    url = os.environ.get("MUNKIREPORT_API_URL")
+    if not url:
+        raise ValueError("MUNKIREPORT_API_URL environment variable is required for tests")
+    return url
 
 
 @pytest.fixture
 def api_key():
-    """Get API key from environment or use default."""
+    """Get API key from environment."""
     import os
-    return os.environ.get("MUNKIREPORT_API_KEY", "your-api-key")
+    key = os.environ.get("MUNKIREPORT_API_KEY")
+    if not key:
+        raise ValueError("MUNKIREPORT_API_KEY environment variable is required for tests")
+    return key
 
 
 @pytest.fixture
