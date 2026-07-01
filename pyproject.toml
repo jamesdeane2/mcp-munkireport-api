@@ -12,11 +12,11 @@ dependencies = [
     "pydantic-settings>=2.0.0",
     "fastmcp>=3.2.0",
     # Pinned minimums to resolve security alerts
-    "authlib>=1.6.11",
+    "authlib>=1.6.12",
     "PyJWT>=2.12.0",
     "cryptography>=46.0.7",
-    "python-multipart>=0.0.26",
-    "urllib3>=2.6.3",
+    "python-multipart>=0.0.27",
+    "urllib3>=2.7.0",
     "requests>=2.33.0",
     "Pygments>=2.20.0",
 ]
